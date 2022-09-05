@@ -1,0 +1,35 @@
+{
+    "sales_order": {
+        "column": {
+            "fee_amount": true,
+            "base_fee_amount": true,
+            "fee_amount_invoiced": true,
+            "base_fee_amount_invoiced": true,
+            "base_fee_amount_refunded": true
+        }
+    },
+    "quote_address": {
+        "column": {
+            "fee_amount": true,
+            "base_fee_amount": true
+        }
+    },
+    "sales_invoice": {
+        "column": {
+            "fee_amount": true,
+            "base_fee_amount": true
+        }
+    },
+    "sales_creditmemo": {
+        "column": {
+            "fee_amount": true,
+            "base_fee_amount": true
+        }
+    },
+    "quote": {
+        "column": {
+            "fee_amount": true,
+            "base_fee_amount": true
+        }
+    }
+}

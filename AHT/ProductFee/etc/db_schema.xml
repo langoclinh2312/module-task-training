@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <!-- Table sales_order -->
+    <table name="sales_order" resource="default" engine="innodb">
+        <column xsi:type="decimal" name="fee_amount" scale="4" precision="12" default="0.0000" unsigned="false" nullable="true" comment="Fee Amount" />
+        <column xsi:type="decimal" name="base_fee_amount" scale="4" precision="12" default="0.0000" unsigned="false" nullable="true" comment="Base Fee Amount" />
+        <column xsi:type="decimal" name="fee_amount_invoiced" scale="4" precision="12" default="0.0000" unsigned="false" nullable="true" comment="Fee Amount Invoiced" />
+        <column xsi:type="decimal" name="base_fee_amount_invoiced" scale="4" precision="12" default="0.0000" unsigned="false" nullable="true" comment="Fee Amount Invoiced" />
+        <column xsi:type="decimal" name="base_fee_amount_refunded" scale="4" precision="12" default="0.0000" unsigned="false" nullable="true" comment="Base Fee Amount Refunded" />
+    </table>
+    <!-- Table quote_address -->
+    <table name="quote_address" resource="default" engine="innodb">
+        <column xsi:type="decimal" name="fee_amount" scale="4" precision="12" default="0.0000" unsigned="false" nullable="true" comment="Fee Amount" />
+        <column xsi:type="decimal" name="base_fee_amount" scale="4" precision="12" default="0.0000" unsigned="false" nullable="true" comment="Base Fee Amount" />
+    </table>
+    <!-- Table sales_invoice -->
+    <table name="sales_invoice" resource="default" engine="innodb">
+        <column xsi:type="decimal" name="fee_amount" scale="4" precision="12" default="0.0000" unsigned="false" nullable="true" comment="Fee Amount" />
+        <column xsi:type="decimal" name="base_fee_amount" scale="4" precision="12" default="0.0000" unsigned="false" nullable="true" comment="Base Fee Amount" />
+    </table>
+    <!-- Table sales_creditmemo -->
+    <table name="sales_creditmemo" resource="default" engine="innodb">
+        <column xsi:type="decimal" name="fee_amount" scale="4" precision="12" default="0.0000" unsigned="false" nullable="true" comment="Fee Amount" />
+        <column xsi:type="decimal" name="base_fee_amount" scale="4" precision="12" default="0.0000" unsigned="false" nullable="true" comment="Base Fee Amount" />
+    </table>
+    <!-- Table quote -->
+    <table name="quote" resource="default" engine="innodb">
+        <column xsi:type="decimal" name="fee_amount" scale="4" precision="12" default="0.0000" unsigned="false" nullable="true" comment="Fee Amount" />
+        <column xsi:type="decimal" name="base_fee_amount" scale="4" precision="12" default="0.0000" unsigned="false" nullable="true" comment="Base Fee Amount" />
+    </table>
+</schema>
