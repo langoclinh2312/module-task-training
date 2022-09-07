@@ -151,21 +151,29 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         foreach ($quote->getAllItems() as $key => $value) {
             if ($product = $value->getProduct()) {
                 if ($product->getTypeId() == 'simple') {
-                    $this->_fee[$product->getId()] = [
-                        'fee_type' => $this->_productFee[$product->getId()]['fee_type'],
-                        'fee' => (floatval($this->_productFee[$product->getId()]['fee']) > 0) ? floatval($this->_productFee[$product->getId()]['fee']) : 0
-                    ];
+
+                    $fee = (floatval($this->_productFee[$product->getId()]['fee']) > 0) ? floatval($this->_productFee[$product->getId()]['fee']) : 0;
+
+                    if ($this->_productFee[$product->getId()]['fee_type'] != $this::HANDLING_TYPE_FIXED) {
+                        $price = $product->getPrice();
+                        $fee = $price * ($fee / 100);
+
+                        $this->_fee[$product->getId()] = [
+                            'fee_type' => $this->_productFee[$product->getId()]['fee_type'],
+                            'fee' => $fee
+                        ];
+                    } else {
+                        $this->_fee[$product->getId()] = [
+                            'fee_type' => $this->_productFee[$product->getId()]['fee_type'],
+                            'fee' => $fee
+                        ];
+                    }
                 }
             }
         }
 
         if (isset($this->_fee)) {
             foreach ($this->_fee as $fee) {
-                if ($fee['fee_type'] != $this::HANDLING_TYPE_FIXED) {
-                    $subTotal = $quote->getSubtotal();
-                    $fee['fee'] = $subTotal * ($fee['fee'] / 100);
-                }
-
                 $fee['fee'] = $this->_priceCurrency->round($fee['fee']);
             }
         }

@@ -69,9 +69,17 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
         </td>
         <td class="col fee" data-th="<?= $block->escapeHtmlAttr(__('Fee')) ?>">
             <?php if ($product->getFeeValue() != 0) : ?>
-                <span class="cart-fee">
-                    <span class="fee"><?= $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($product->getFeeValue(), true, false); ?></span>
-                </span>
+                <?php if ($product->getFeeType() == 'fixed') : ?>
+                    <span class="cart-fee">
+                        <span class="fee"><?= $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($product->getFeeValue(), true, false); ?></span>
+                    </span>
+                <?php else :
+                    $fee = $product->getPrice() * ($product->getFeeValue() / 100);
+                ?>
+                    <span class="cart-fee">
+                        <span class="fee"><?= $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($fee, true, false); ?></span>
+                    </span>
+                <?php endif; ?>
             <?php endif; ?>
         </td>
         <?php if ($canApplyMsrp) : ?>

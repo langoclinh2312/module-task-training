@@ -41,7 +41,7 @@ class Totals extends \Magento\Framework\View\Element\Template
             [
                 'code' => 'fee',
                 'value' => $this->getSource()->getFeeAmount(),
-                'label' => __('Fee Amount'),
+                'label' => __('Total Fee'),
             ]
         );
         $this->getParentBlock()->addTotalBefore($total, 'grand_total');
