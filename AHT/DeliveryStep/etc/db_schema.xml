@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <!-- Table sales_order -->
+    <table name="sales_order" resource="default" engine="innodb">
+        <column xsi:type="date" name="delivery_date" unsigned="false" nullable="false" comment="Delivery date" />
+        <column xsi:type="varchar" name="delivery_comment" unsigned="false" nullable="true" length="64000" comment="Delivery comment" />
+    </table>
+
+    <!-- Table sales_order_grid -->
+    <table name="sales_order_grid" resource="default" engine="innodb">
+        <column xsi:type="date" name="delivery_date" unsigned="false" nullable="false" comment="Delivery date" />
+        <column xsi:type="varchar" name="delivery_comment" unsigned="false" nullable="true" length="64000" comment="Delivery comment" />
+    </table>
+
+    <!-- Table quote -->
+    <table name="quote" resource="default" engine="innodb">
+        <column xsi:type="date" name="delivery_date" unsigned="false" nullable="false" comment="Delivery date" />
+        <column xsi:type="varchar" name="delivery_comment" unsigned="false" nullable="true" length="64000" comment="Delivery comment" />
+    </table>
+</schema>
