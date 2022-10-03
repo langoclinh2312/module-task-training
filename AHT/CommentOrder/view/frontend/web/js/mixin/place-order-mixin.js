@@ -37,8 +37,6 @@ define([
                     'order_comments': value,
                     'is_customer': isCustomer
                 };
-                console.log(payload.order_comments);
-
 
                 if (!payload.order_comments) {
                     return true;
