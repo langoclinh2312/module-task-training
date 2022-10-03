@@ -22,6 +22,9 @@ class LayoutProcessorPlugin
                 'dateFormat' => 'y/MM/dd',
                 'showsTime' => false
             ],
+            'validation' => [
+                'validate-no-empty' => true,
+            ],
             'provider' => 'checkoutProvider',
             'visible' => true,
             'sortOrder' => 1,

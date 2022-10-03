@@ -139,8 +139,8 @@ if ($exist = ($block->getProductCollection() && $block->getProductCollection()->
                         speed: <?= ($block->getData('loop_speed') != '') ? $block->getData('loop_speed') : 300; ?>,
                         autoplay: <?= ($block->getData('owl_autoplay') == 1) ? 'true' : 'false'; ?>,
                         autoplaySpeed: <?= ($block->getData('autoplay_speed') != '') ? $block->getData('autoplay_speed') : 300; ?>,
-                        slidesToShow: <?= $block->getData('slides_to_show'); ?>,
-                        slidesToScroll: <?= $block->getData('slides_to_scroll'); ?>,
+                        slidesToShow: <?= $block->getData('products_per_page'); ?>,
+                        slidesToScroll: <?= $block->getData('products_per_page'); ?>,
                         <?php if ($block->getData('owl_responsive') == 1) : ?>
                             responsive: [{
                                     breakpoint: <?= $block->getData('breakpoint_desktop'); ?>,

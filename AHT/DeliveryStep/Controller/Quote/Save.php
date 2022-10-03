@@ -40,7 +40,9 @@ class Save extends \Magento\Framework\App\Action\Action
             }
 
             $quote->setData('delivery_date', $deliveryDate);
+
             $quote->setData('delivery_comment', $deliveryCommnet);
+
             $this->quoteRepository->save($quote);
         }
     }

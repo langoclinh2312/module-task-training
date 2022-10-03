@@ -6,49 +6,14 @@
  */
 -->
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
-    <widget id="products_list" class="Magento\CatalogWidget\Block\Product\ProductsList" is_email_compatible="true" placeholder_image="Magento_CatalogWidget::images/products_list.png" ttl="86400">
-        <label translate="true">Catalog Products List</label>
-        <description translate="true">List of Products</description>
+    <widget id="products_list">
         <parameters>
-            <parameter name="title" xsi:type="text" sort_order="0" required="false" visible="true">
-                <label translate="true">Title</label>
-            </parameter>
-            <parameter name="description" xsi:type="text" required="false" sort_order="1" visible="true">
-                <label translate="true">Description</label>
-            </parameter>
-            <parameter name="show_pager" xsi:type="select" sort_order="2" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
-                <label translate="true">Display Page Control</label>
-            </parameter>
-            <parameter name="products_per_page" xsi:type="text" required="true" sort_order="3" visible="true">
-                <label translate="true">Number of Products per Page</label>
-                <depends>
-                    <parameter name="show_pager" value="1" />
-                </depends>
-                <value>5</value>
-            </parameter>
-            <parameter name="products_count" xsi:type="text" required="true" sort_order="4" visible="true">
-                <label translate="true">Number of Products to Display</label>
-                <value>10</value>
-            </parameter>
+            <parameter name="products_count" sort_order="4" visible="true" />
             <parameter name="use_slider" xsi:type="select" sort_order="5" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
                 <label translate="true">Use slider</label>
                 <depends>
                     <parameter name="show_pager" value="1" />
                 </depends>
-            </parameter>
-            <parameter name="slides_to_show" xsi:type="text" required="true" sort_order="6" visible="true">
-                <label translate="true">Slides To Show</label>
-                <depends>
-                    <parameter name="use_slider" value="1" />
-                </depends>
-                <value>5</value>
-            </parameter>
-            <parameter name="slides_to_scroll" xsi:type="text" required="true" sort_order="7" visible="true">
-                <label translate="true">Slides To Scroll</label>
-                <depends>
-                    <parameter name="use_slider" value="1" />
-                </depends>
-                <value>5</value>
             </parameter>
             <parameter name="owl_responsive" xsi:type="select" sort_order="8" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
                 <label translate="true">Owl responsive</label>
@@ -60,12 +25,14 @@
                 <label translate="true">Breakpoint Desktop</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
             </parameter>
             <parameter name="breakpoint_to_show_desktop" xsi:type="text" required="true" sort_order="10" visible="true">
                 <label translate="true">Breakpoint To Show Desktop</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
                 <value>5</value>
             </parameter>
@@ -73,6 +40,7 @@
                 <label translate="true">Breakpoint To Scroll Desktop</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
                 <value>5</value>
             </parameter>
@@ -80,12 +48,14 @@
                 <label translate="true">Breakpoint Tablet</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
             </parameter>
             <parameter name="breakpoint_to_show_tablet" xsi:type="text" required="true" sort_order="13" visible="true">
                 <label translate="true">Breakpoint To Show Tablet</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
                 <value>5</value>
             </parameter>
@@ -93,6 +63,7 @@
                 <label translate="true">Breakpoint To Scroll Tablet</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
                 <value>5</value>
             </parameter>
@@ -100,12 +71,14 @@
                 <label translate="true">Breakpoint Mobile</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
             </parameter>
             <parameter name="breakpoint_to_show_mobile" xsi:type="text" required="true" sort_order="16" visible="true">
                 <label translate="true">Breakpoint To Show Mobile</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
                 <value>5</value>
             </parameter>
@@ -113,6 +86,7 @@
                 <label translate="true">Breakpoint To Scroll Mobile</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
                 <value>5</value>
             </parameter>
@@ -126,6 +100,7 @@
                 <label translate="true">Autoplay Speed</label>
                 <depends>
                     <parameter name="owl_autoplay" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
                 <value>300</value>
             </parameter>
@@ -145,6 +120,7 @@
                 <label translate="true">Loop Speed</label>
                 <depends>
                     <parameter name="owl_loop" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
                 <value>300</value>
             </parameter>
@@ -161,7 +137,7 @@
                     <parameter name="use_slider" value="1" />
                 </depends>
             </parameter>
-            <parameter name="template" xsi:type="select" sort_order="25" required="true" visible="true">
+            <parameter name="template" sort_order="25">
                 <label translate="true">Template</label>
                 <options>
                     <option name="default" value="AHT_CmsWidget::product/widget/content/grid.phtml" selected="true">
@@ -169,83 +145,16 @@
                     </option>
                 </options>
             </parameter>
-            <parameter name="cache_lifetime" xsi:type="text" sort_order="26" visible="true">
-                <label translate="true">Cache Lifetime (Seconds)</label>
-                <description translate="true">
-                    <![CDATA[Time in seconds between the widget updates.
-                    <br/>If not set, equals to 86400 seconds (24 hours). To update widget instantly, go to Cache Management and clear Blocks HTML Output cache.
-                    <br/>Widget will not show products that begin to match the specified conditions until cache is refreshed.]]>
-                </description>
-            </parameter>
-            <parameter name="condition" xsi:type="conditions" sort_order="27" visible="true" required="true" class="Magento\CatalogWidget\Block\Product\Widget\Conditions">
-                <label translate="true">Conditions</label>
-            </parameter>
         </parameters>
-        <containers>
-            <container name="content">
-                <template name="grid" value="default" />
-            </container>
-            <container name="content.top">
-                <template name="grid" value="default" />
-            </container>
-            <container name="content.bottom">
-                <template name="grid" value="default" />
-            </container>
-        </containers>
     </widget>
 
-    <widget id="new_products" class="Magento\Catalog\Block\Product\Widget\NewWidget" is_email_compatible="true" placeholder_image="Magento_Catalog::images/product_widget_new.png" ttl="86400">
-        <label translate="true">Catalog New Products List</label>
-        <description translate="true">List of Products that are set as New</description>
+    <widget id="new_products">
         <parameters>
-            <parameter name="description" xsi:type="text" required="false" sort_order="0" visible="true">
-                <label translate="true">Description</label>
-            </parameter>
-            <parameter name="display_type" xsi:type="select" required="true" sort_order="1" visible="true">
-                <label translate="true">Display Type</label>
-                <description translate="true">All products - recently added products, New products - products marked as new</description>
-                <options>
-                    <option name="default" value="all_products" selected="true">
-                        <label translate="true">All products</label>
-                    </option>
-                    <option name="item" value="new_products">
-                        <label translate="true">New products</label>
-                    </option>
-                </options>
-            </parameter>
-            <parameter name="show_pager" xsi:type="select" visible="true" sort_order="3" source_model="Magento\Config\Model\Config\Source\Yesno">
-                <label translate="true">Display Page Control</label>
-            </parameter>
-            <parameter name="products_per_page" xsi:type="text" required="true" sort_order="4" visible="true">
-                <label translate="true">Number of Products per Page</label>
-                <depends>
-                    <parameter name="show_pager" value="1" />
-                </depends>
-                <value>5</value>
-            </parameter>
-            <parameter name="products_count" xsi:type="text" sort_order="5" required="true" visible="true">
-                <label translate="true">Number of Products to Display</label>
-                <value>10</value>
-            </parameter>
             <parameter name="use_slider" xsi:type="select" sort_order="6" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
                 <label translate="true">Use slider</label>
                 <depends>
                     <parameter name="show_pager" value="1" />
                 </depends>
-            </parameter>
-            <parameter name="slides_to_show" xsi:type="text" required="true" sort_order="7" visible="true">
-                <label translate="true">Slides To Show</label>
-                <depends>
-                    <parameter name="use_slider" value="1" />
-                </depends>
-                <value>5</value>
-            </parameter>
-            <parameter name="slides_to_scroll" xsi:type="text" required="true" sort_order="8" visible="true">
-                <label translate="true">Slides To Scroll</label>
-                <depends>
-                    <parameter name="use_slider" value="1" />
-                </depends>
-                <value>5</value>
             </parameter>
             <parameter name="owl_responsive" xsi:type="select" sort_order="9" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
                 <label translate="true">Owl responsive</label>
@@ -257,12 +166,14 @@
                 <label translate="true">Breakpoint Desktop</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
             </parameter>
             <parameter name="breakpoint_to_show_desktop" xsi:type="text" required="true" sort_order="11" visible="true">
                 <label translate="true">Breakpoint To Show Desktop</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
                 <value>5</value>
             </parameter>
@@ -270,6 +181,7 @@
                 <label translate="true">Breakpoint To Scroll Desktop</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
                 <value>5</value>
             </parameter>
@@ -277,12 +189,14 @@
                 <label translate="true">Breakpoint Tablet</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
             </parameter>
             <parameter name="breakpoint_to_show_tablet" xsi:type="text" required="true" sort_order="14" visible="true">
                 <label translate="true">Breakpoint To Show Tablet</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
                 <value>5</value>
             </parameter>
@@ -290,6 +204,7 @@
                 <label translate="true">Breakpoint To Scroll Tablet</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
                 <value>5</value>
             </parameter>
@@ -297,12 +212,14 @@
                 <label translate="true">Breakpoint Mobile</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
             </parameter>
             <parameter name="breakpoint_to_show_mobile" xsi:type="text" required="true" sort_order="17" visible="true">
                 <label translate="true">Breakpoint To Show Mobile</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
                 <value>5</value>
             </parameter>
@@ -310,6 +227,7 @@
                 <label translate="true">Breakpoint To Scroll Mobile</label>
                 <depends>
                     <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
                 <value>5</value>
             </parameter>
@@ -323,6 +241,7 @@
                 <label translate="true">Autoplay Speed</label>
                 <depends>
                     <parameter name="owl_autoplay" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
                 <value>300</value>
             </parameter>
@@ -342,6 +261,7 @@
                 <label translate="true">Loop Speed</label>
                 <depends>
                     <parameter name="owl_loop" value="1" />
+                    <parameter name="use_slider" value="1" />
                 </depends>
                 <value>300</value>
             </parameter>
@@ -364,44 +284,8 @@
                     <option name="default" value="AHT_CmsWidget::product/widget/content/new_grid.phtml" selected="true">
                         <label translate="true">New Products Grid Template</label>
                     </option>
-                    <option name="list" value="product/widget/new/content/new_list.phtml">
-                        <label translate="true">New Products List Template</label>
-                    </option>
-                    <option name="list_default" value="product/widget/new/column/new_default_list.phtml">
-                        <label translate="true">New Products Images and Names Template</label>
-                    </option>
-                    <option name="list_names" value="product/widget/new/column/new_names_list.phtml">
-                        <label translate="true">New Products Names Only Template</label>
-                    </option>
-                    <option name="list_images" value="product/widget/new/column/new_images_list.phtml">
-                        <label translate="true">New Products Images Only Template</label>
-                    </option>
                 </options>
             </parameter>
-            <parameter name="cache_lifetime" xsi:type="text" sort_order="27" visible="true">
-                <label translate="true">Cache Lifetime (Seconds)</label>
-                <description translate="true">
-                    <![CDATA[Time in seconds between the widget updates.
-                    <br/>If not set, equals to 86400 seconds (24 hours). To update widget instantly, go to Cache Management and clear Blocks HTML Output cache.
-                    <br/>Widget will not show products that begin to match the specified conditions until cache is refreshed.]]>
-                </description>
-            </parameter>
         </parameters>
-        <containers>
-            <container name="sidebar.main">
-                <template name="default" value="list_default" />
-                <template name="names_only" value="list_names" />
-                <template name="images_only" value="list_images" />
-            </container>
-            <container name="content">
-                <template name="grid" value="default" />
-                <template name="list" value="list" />
-            </container>
-            <container name="sidebar.additional">
-                <template name="default" value="list_default" />
-                <template name="names_only" value="list_names" />
-                <template name="images_only" value="list_images" />
-            </container>
-        </containers>
     </widget>
 </widgets>

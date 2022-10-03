@@ -15,7 +15,7 @@ class AdditionalConfigVars implements ConfigProviderInterface
      */
     protected $scopeConfig;
 
-    const PATH_DELIVERY_STEP = 'checkout/options/order_comment_enabled';
+    const PATH_DELIVERY_STEP = 'delivery_setting/general/enable';
 
     /**
      * AdditionalConfigVars constructor.
