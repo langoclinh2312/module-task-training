@@ -46,6 +46,8 @@ class Cart implements ObserverInterface
                 $cartItems[$value->getSku()] = $value->getQty();
             }
         }
+
+        $item->setPrice($price);
         $item->setOriginalCustomPrice($price);
         $item->setCustomPrice($price);
         $item->getProduct()->setIsSuperMode(true);

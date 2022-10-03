@@ -83,7 +83,9 @@ class ConvertToCsv extends  \Magento\Ui\Model\Export\ConvertToCsv
         $stream = $this->directory->openFile($file, 'w+');
         $stream->lock();
         $lable = $this->metadataProvider->getHeaders($component);
-        array_push($lable, "Product Id", "Product Name");
+        if ($component->getName() == "sales_order_grid") {
+            array_push($lable, "Product Id", "Product Name");
+        }
         $stream->writeCsv($lable);
         $i = 1;
         $searchCriteria = $dataProvider->getSearchCriteria()
