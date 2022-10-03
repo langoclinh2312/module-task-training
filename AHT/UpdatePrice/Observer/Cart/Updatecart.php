@@ -48,19 +48,20 @@ class Updatecart implements ObserverInterface
     {
 
         $item = $observer->getEvent()->getItem();
+        $productPrice = $item->getProduct()->getPrice();
         $productId = $item->getProduct()->getId();
         $product = $this->_productRepository->getById($productId);
-        $quote = $item->getQuote();
         $enable = $this->_scopeConfig->getValue(
             'checkout/cart/custom_price_enable',
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );
 
         if ($enable != 0) {
-            $price = $product->getCustomPrice() > 0 ? ($product->getPrice() + $product->getCustomPrice()) : $product->getPrice();
+            $price = $product->getCustomPrice() > 0 ? ($productPrice + $product->getCustomPrice()) : $productPrice;
         } else {
-            $price = $product->getPrice();
+            $price = $productPrice;
         }
+        $item->setPrice($price);
         $item->setCustomPrice($price);
         $item->setOriginalCustomPrice($price);
         $item->getProduct()->setIsSuperMode(true);
