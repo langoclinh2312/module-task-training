@@ -1,0 +1,22 @@
+<!--Use 'stepCode' as id attribute-->
+<li data-bind="fadeVisible: isVisible, attr: { id: stepCode }">
+    <div class="step-title" data-bind="i18n: stepTitle" data-role="title"></div>
+    <div id="checkout-step-title" class="step-content" data-role="content">
+        <form data-bind="submit: navigateToNextStep" id="delivery_form" novalidate="novalidate">
+            <!-- code in here -->
+            <div class="delivery-checkout">
+                <!-- ko foreach: getRegion('field-group-delivery') -->
+                <!-- ko template: getTemplate() -->
+                <!-- /ko -->
+                <!-- /ko -->
+            </div>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button data-role="opc-continue" type="submit" class="button action continue primary">
+                        <span><!-- ko i18n: 'Next'--><!-- /ko --></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</li>

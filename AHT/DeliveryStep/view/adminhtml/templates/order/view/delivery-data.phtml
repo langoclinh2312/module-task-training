@@ -1,0 +1,32 @@
+<?php if ($block->getOrder()->getDeliveryDate() != '0000-00-00') {
+?>
+    <section class="admin__page-section">
+        <div class="admin__page-section-title">
+            <span class="title"><?= /* @noEscape */ __('Order Delivery') ?></span>
+        </div>
+        <div class="admin__page-section-content">
+            <div class="admin__page-section-item">
+                <div class="admin__page-section-item-title">
+                    <span class="title"><?= /* @noEscape */ __('Delivery Date') ?></span>
+                </div>
+                <div class="admin__page-section-item-content">
+                    <div class="delivery-date-content" id="delivery-date-label-div">
+                        <span><?= $block->escapeHtml(nl2br($block->getOrder()->getDeliveryDate())); ?></span>
+                    </div>
+                </div>
+            </div>
+            <div class="admin__page-section-item">
+                <div class="admin__page-section-item-title">
+                    <span class="title"><?= /* @noEscape */ __('Delivery Comment') ?></span>
+                </div>
+                <div class="admin__page-section-item-content">
+                    <div class="delivery-comment-content" id="delivery-comment-label-div">
+                        <span><?= $block->escapeHtml(nl2br($block->getOrder()->getDeliveryComment())); ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php
+}
+?>

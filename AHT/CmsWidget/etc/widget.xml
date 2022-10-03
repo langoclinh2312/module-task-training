@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="products_list">
+        <parameters>
+            <parameter name="products_count" sort_order="4" visible="true" />
+            <parameter name="use_slider" xsi:type="select" sort_order="5" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Use slider</label>
+                <depends>
+                    <parameter name="show_pager" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="owl_responsive" xsi:type="select" sort_order="8" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Owl responsive</label>
+                <depends>
+                    <parameter name="use_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="breakpoint_desktop" xsi:type="text" required="true" sort_order="9" visible="true">
+                <label translate="true">Breakpoint Desktop</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="breakpoint_to_show_desktop" xsi:type="text" required="true" sort_order="10" visible="true">
+                <label translate="true">Breakpoint To Show Desktop</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="breakpoint_to_scroll_desktop" xsi:type="text" required="true" sort_order="11" visible="true">
+                <label translate="true">Breakpoint To Scroll Desktop</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="breakpoint_tablet" xsi:type="text" required="true" sort_order="12" visible="true">
+                <label translate="true">Breakpoint Tablet</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="breakpoint_to_show_tablet" xsi:type="text" required="true" sort_order="13" visible="true">
+                <label translate="true">Breakpoint To Show Tablet</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="breakpoint_to_scroll_tablet" xsi:type="text" required="true" sort_order="14" visible="true">
+                <label translate="true">Breakpoint To Scroll Tablet</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="breakpoint_mobile" xsi:type="text" required="true" sort_order="15" visible="true">
+                <label translate="true">Breakpoint Mobile</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="breakpoint_to_show_mobile" xsi:type="text" required="true" sort_order="16" visible="true">
+                <label translate="true">Breakpoint To Show Mobile</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="breakpoint_to_scroll_mobile" xsi:type="text" required="true" sort_order="17" visible="true">
+                <label translate="true">Breakpoint To Scroll Mobile</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="owl_autoplay" xsi:type="select" sort_order="18" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Owl autoplay</label>
+                <depends>
+                    <parameter name="use_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="autoplay_speed" xsi:type="text" required="true" sort_order="19" visible="true">
+                <label translate="true">Autoplay Speed</label>
+                <depends>
+                    <parameter name="owl_autoplay" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>300</value>
+            </parameter>
+            <parameter name="owl_nav" xsi:type="select" sort_order="20" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Owl nav</label>
+                <depends>
+                    <parameter name="use_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="owl_loop" xsi:type="select" sort_order="21" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Owl loop</label>
+                <depends>
+                    <parameter name="use_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="loop_speed" xsi:type="text" required="true" sort_order="22" visible="true">
+                <label translate="true">Loop Speed</label>
+                <depends>
+                    <parameter name="owl_loop" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>300</value>
+            </parameter>
+            <parameter name="owl_margin" xsi:type="text" required="false" sort_order="23" visible="true">
+                <label translate="true">Owl margin</label>
+                <depends>
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>0</value>
+            </parameter>
+            <parameter name="owl_dots" xsi:type="select" sort_order="24" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Owl dots</label>
+                <depends>
+                    <parameter name="use_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="template" sort_order="25">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="AHT_CmsWidget::product/widget/content/grid.phtml" selected="true">
+                        <label translate="true">Products Grid Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+
+    <widget id="new_products">
+        <parameters>
+            <parameter name="use_slider" xsi:type="select" sort_order="6" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Use slider</label>
+                <depends>
+                    <parameter name="show_pager" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="owl_responsive" xsi:type="select" sort_order="9" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Owl responsive</label>
+                <depends>
+                    <parameter name="use_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="breakpoint_desktop" xsi:type="text" required="true" sort_order="10" visible="true">
+                <label translate="true">Breakpoint Desktop</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="breakpoint_to_show_desktop" xsi:type="text" required="true" sort_order="11" visible="true">
+                <label translate="true">Breakpoint To Show Desktop</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="breakpoint_to_scroll_desktop" xsi:type="text" required="true" sort_order="12" visible="true">
+                <label translate="true">Breakpoint To Scroll Desktop</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="breakpoint_tablet" xsi:type="text" required="true" sort_order="13" visible="true">
+                <label translate="true">Breakpoint Tablet</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="breakpoint_to_show_tablet" xsi:type="text" required="true" sort_order="14" visible="true">
+                <label translate="true">Breakpoint To Show Tablet</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="breakpoint_to_scroll_tablet" xsi:type="text" required="true" sort_order="15" visible="true">
+                <label translate="true">Breakpoint To Scroll Tablet</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="breakpoint_mobile" xsi:type="text" required="true" sort_order="16" visible="true">
+                <label translate="true">Breakpoint Mobile</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="breakpoint_to_show_mobile" xsi:type="text" required="true" sort_order="17" visible="true">
+                <label translate="true">Breakpoint To Show Mobile</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="breakpoint_to_scroll_mobile" xsi:type="text" required="true" sort_order="18" visible="true">
+                <label translate="true">Breakpoint To Scroll Mobile</label>
+                <depends>
+                    <parameter name="owl_responsive" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="owl_autoplay" xsi:type="select" sort_order="19" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Owl autoplay</label>
+                <depends>
+                    <parameter name="use_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="autoplay_speed" xsi:type="text" required="true" sort_order="20" visible="true">
+                <label translate="true">Autoplay Speed</label>
+                <depends>
+                    <parameter name="owl_autoplay" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>300</value>
+            </parameter>
+            <parameter name="owl_nav" xsi:type="select" sort_order="21" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Owl nav</label>
+                <depends>
+                    <parameter name="use_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="owl_loop" xsi:type="select" sort_order="22" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Owl loop</label>
+                <depends>
+                    <parameter name="use_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="loop_speed" xsi:type="text" required="true" sort_order="23" visible="true">
+                <label translate="true">Loop Speed</label>
+                <depends>
+                    <parameter name="owl_loop" value="1" />
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>300</value>
+            </parameter>
+            <parameter name="owl_margin" xsi:type="text" required="false" sort_order="24" visible="true">
+                <label translate="true">Owl margin</label>
+                <depends>
+                    <parameter name="use_slider" value="1" />
+                </depends>
+                <value>0</value>
+            </parameter>
+            <parameter name="owl_dots" xsi:type="select" sort_order="25" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Owl dots</label>
+                <depends>
+                    <parameter name="use_slider" value="1" />
+                </depends>
+            </parameter>
+            <parameter name="template" xsi:type="select" sort_order="26" required="true" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="AHT_CmsWidget::product/widget/content/new_grid.phtml" selected="true">
+                        <label translate="true">New Products Grid Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
